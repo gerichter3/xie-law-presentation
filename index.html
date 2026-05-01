@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>共有物分割與民法§425-1適用問題 - 謝秉錡律師事務所</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2c5282;
+            --accent: #c9a227;
+            --light: #f7fafc;
+            --text: #2d3748;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .hero .authors {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 80px;
+            z-index: 999;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .nav-content::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-item {
+            padding: 0.5rem 1rem;
+            background: var(--light);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .nav-item:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Slide Section */
+        .slide {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-number {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .slide h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .slide ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .slide li {
+            padding: 0.8rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+
+        .slide li:last-child {
+            border-bottom: none;
+        }
+
+        .slide li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .case-box {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .case-box h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Diagram Slide */
+        .diagram-box {
+            background: #f0f4f8;
+            border: 2px solid var(--secondary);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .diagram-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        /* Conclusion Slide */
+        .conclusion {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+        }
+
+        .conclusion h2 {
+            color: var(--accent);
+            border-bottom-color: rgba(255,255,255,0.3);
+        }
+
+        .conclusion li {
+            border-bottom-color: rgba(255,255,255,0.1);
+        }
+
+        .conclusion li::before {
+            color: var(--accent);
+        }
+
+        /* Thank You Section */
+        .thank-you {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            border-radius: 12px;
+        }
+
+        .thank-you h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .thank-you p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero .authors {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .slide {
+                padding: 1.5rem;
+            }
+
+            .slide h2 {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            header, nav {
+                position: relative;
+                top: 0;
+            }
+            .slide {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">謝秉錡律師事務所</div>
+            <div class="contact-info">
+                <span>📍 台中市南區工學北路99號</span>
+                <span>📞 04-22658115</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>共有物分割與民法§425-1適用問題</h1>
+        <p class="subtitle">法學案例分析</p>
+        <div class="authors">
+            <span>謝秉錡律師</span>
+            <span>何博彥律師</span>
+        </div>
+    </section>
+
+    <nav>
+        <div class="nav-content">
+            <a href="#slide1" class="nav-item">當事人關係圖</a>
+            <a href="#slide2" class="nav-item">案件背景</a>
+            <a href="#slide3" class="nav-item">訴訟歷程</a>
+            <a href="#slide4" class="nav-item">重要發現</a>
+            <a href="#slide5" class="nav-item">法律主張</a>
+            <a href="#slide6" class="nav-item">§425-1要件</a>
+            <a href="#slide7" class="nav-item">實務見解</a>
+            <a href="#slide8" class="nav-item">結論</a>
+            <a href="#slide9" class="nav-item">瑕疵擔保</a>
+            <a href="#slide10" class="nav-item">總整理</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Slide 2: 當事人關係圖 -->
+        <section id="slide1" class="slide">
+            <span class="slide-number">2 / 20</span>
+            <h2>當事人關係圖</h2>
+            <div class="diagram-box">
+                <div class="diagram-title">繼承關係與共有狀態</div>
+                <ul>
+                    <li><strong>被繼承人：</strong>戊</li>
+                    <li><strong>繼承人：</strong>甲、乙、丙、丁</li>
+                    <li><strong>標的：</strong>A土地、B土地、未登記房子</li>
+                    <li><strong>原始狀態：</strong>土地房屋均由戊所有</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 4: 案件背景 -->
+        <section id="slide2" class="slide">
+            <span class="slide-number">3 / 20</span>
+            <h2>案件背景</h2>
+            <ul>
+                <li>甲、乙、丙、丁三人共有A土地及B土地</li>
+                <li>A土地上有一間未辦保存登記的房屋</li>
+                <li>上開房地原來均是被繼承人戊所有</li>
+                <li>後由四人共同繼承</li>
+            </ul>
+        </section>
+
+        <!-- Slide 6: 訴訟歷程 -->
+        <section id="slide3" class="slide">
+            <span class="slide-number">4 / 20</span>
+            <h2>訴訟歷程</h2>
+            <ul>
+                <li>甲提出共有物分割訴訟</li>
+                <li>就房屋部分維持共有狀態</li>
+                <li>法院判決：甲取得A土地</li>
+                <li>法院判決：乙取得B土地</li>
+            </ul>
+        </section>
+
+        <!-- Slide 8: 重要發現 -->
+        <section id="slide4" class="slide">
+            <span class="slide-number">5 / 20</span>
+            <h2>重要發現</h2>
+            <ul>
+                <li>房屋建造執照基地範圍涵蓋A地和B地</li>
+                <li>B土地也被套繪在建築基地範圍內</li>
+                <li>甲向丙、丁取得房屋持分</li>
+                <li>甲成為房屋的主要權利人</li>
+            </ul>
+        </section>
+
+        <!-- Slide 10: 甲之法律主張 -->
+        <section id="slide5" class="slide">
+            <span class="slide-number">6 / 20</span>
+            <h2>甲之法律主張</h2>
+            <ul>
+                <li>房屋及土地原屬同一人（戊）所有</li>
+                <li>後來因裁判分割而分離</li>
+                <li>主張有民法§425-1法定租賃關係</li>
+                <li>請求法院承認其租賃權</li>
+            </ul>
+        </section>
+
+        <!-- Slide 13: 乙之法律主張 -->
+        <section class="slide">
+            <span class="slide-number">7 / 20</span>
+            <h2>乙之法律主張</h2>
+            <ul>
+                <li>B土地因裁判分割取得，共有物有瑕疵</li>
+                <li>依民法§825規定主張瑕疵擔保</li>
+                <li>認為甲應對瑕疵負責</li>
+                <li>請求救濟權利受損</li>
+            </ul>
+        </section>
+
+        <!-- Slide 14: §425-1要件分析 -->
+        <section id="slide6" class="slide">
+            <span class="slide-number">8 / 20</span>
+            <h2>民法§425-1要件分析</h2>
+            <div class="highlight-box">
+                <strong>§425-1 法定租賃關係成立要件：</strong>
+            </div>
+            <ul>
+                <li>土地及房屋同屬一人所有</li>
+                <li>僅將土地或房屋所有權讓與他人</li>
+                <li>或同時、先後讓與相異之人</li>
+            </ul>
+            <div class="highlight-box">
+                <strong>→ 推定有租賃關係存在</strong>
+            </div>
+        </section>
+
+        <!-- Slide 15: §425-1立法目的 -->
+        <section class="slide">
+            <span class="slide-number">9 / 20</span>
+            <h2>§425-1立法目的</h2>
+            <ul>
+                <li>房屋所有權與基地利用權一體化</li>
+                <li>保護房屋既得之使用權</li>
+                <li>調和土地、建物不同所有人間之權益</li>
+                <li>符合社會正義之要求</li>
+            </ul>
+        </section>
+
+        <!-- Slide 16: 最高法院107年度 -->
+        <section id="slide7" class="slide">
+            <span class="slide-number">10 / 20</span>
+            <h2>最高法院107年度台上字第879號</h2>
+            <div class="case-box">
+                <h3>見解要旨</h3>
+                <ul>
+                    <li>裁判分割係法院基於法律規定所為之強制措施</li>
+                    <li>屬形成判決，並非當事人自由意思之「讓與」</li>
+                    <li>分管契約於分割確定時終止</li>
+                    <li>與§425-1規範情形尚難謂為相同</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 17: 臺灣高等法院113年度 -->
+        <section class="slide">
+            <span class="slide-number">11 / 20</span>
+            <h2>臺灣高等法院113年度上字第792號</h2>
+            <div class="case-box">
+                <h3>見解要旨</h3>
+                <ul>
+                    <li>裁判分割非屬「讓與」行為</li>
+                    <li>共有人間已有§825瑕疵擔保責任</li>
+                    <li>無須類推適用§425-1</li>
+                    <li>房屋與土地分屬相異之人才有適用</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 18: 屏東地院111年度 -->
+        <section class="slide">
+            <span class="slide-number">12 / 20</span>
+            <h2>屏東地院111年度訴字第492號</h2>
+            <div class="case-box">
+                <h3>見解要旨</h3>
+                <ul>
+                    <li>法院判決分割後各共有人取得單獨所有權</li>
+                    <li>依§354規定互負瑕疵擔保責任</li>
+                    <li>共有人負有拆除義務（非租賃關係）</li>
+                    <li>與土地房屋同屬一人而分開出賣情形不同</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Slide 19: 結論 -->
+        <section id="slide8" class="slide conclusion">
+            <span class="slide-number">13 / 20</span>
+            <h2>結論：裁判分割不適用§425-1</h2>
+            <ul>
+                <li>裁判分割係法院形成判決，非「讓與」行為</li>
+                <li>共有人間已有§825擔保責任機制</li>
+                <li>房屋仍維持共有，甲為共有人之一</li>
+                <li>不符「土地及房屋分屬相異之人」要件</li>
+            </ul>
+        </section>
+
+        <!-- Slide 20: 爭議二：乙主張瑕疵擔保 -->
+        <section id="slide9" class="slide">
+            <span class="slide-number">14 / 20</span>
+            <h2>爭議二：乙主張瑕疵擔保</h2>
+            <ul>
+                <li>乙主張取得之B土地「共有物有瑕疵」</li>
+                <li>涉及民法§825之適用</li>
+            </ul>
+            <div class="highlight-box">
+                <strong>§825規定：</strong><br>
+                各共有人對於他共有人因分割而得之物，按其應有部分，負與出賣人同一之擔保責任
+            </div>
+        </section>
+
+        <!-- Slide 21: 瑕疵擔保責任類型 -->
+        <section class="slide">
+            <span class="slide-number">15 / 20</span>
+            <h2>瑕疵擔保責任類型</h2>
+            <ul>
+                <li><strong>權利瑕疵擔保責任</strong>（民法§349以下）</li>
+                <li><strong>物之瑕疵擔保責任</strong>（民法§354以下）</li>
+                <li>類似買賣契約中之出賣人責任</li>
+                <li>共有人間互負相同之擔保義務</li>
+            </ul>
+        </section>
+
+        <!-- Slide 22: 瑕疵擔保請求權時效 -->
+        <section class="slide">
+            <span class="slide-number">16 / 20</span>
+            <h2>瑕疵擔保請求權時效</h2>
+            <div class="highlight-box">
+                <strong>民法§365規定：</strong>
+            </div>
+            <ul>
+                <li>買受人通知後<strong>6個月間</strong>不行使 → 消滅</li>
+                <li>或自物之交付時起超過<strong>5年</strong> → 消滅</li>
+                <li>共有物分割應類推適用此規定</li>
+            </ul>
+        </section>
+
+        <!-- Slide 25: 時效起算點分析 -->
+        <section class="slide">
+            <span class="slide-number">17 / 20</span>
+            <h2>時效起算點分析</h2>
+            <ul>
+                <li>自知悉瑕疵並為通知後<strong>6個月</strong></li>
+                <li>或自分割判決確定之日起<strong>5年</strong>內</li>
+                <li>分割判決確定日視為「交付」時點</li>
+                <li>逾期請求權消滅</li>
+            </ul>
+        </section>
+
+        <!-- Slide 26: 整體結論 -->
+        <section class="slide">
+            <span class="slide-number">18 / 20</span>
+            <h2>整體結論</h2>
+            <ul>
+                <li>甲主張§425-1無理由：裁判分割非讓與</li>
+                <li>房屋仍共有，甲為共有人之一</li>
+                <li>乙主張瑕疵擔保有時效限制</li>
+                <li>乙應於分割確定後5年內行使權利</li>
+            </ul>
+        </section>
+
+        <!-- Slide 27: 重點總整理 -->
+        <section id="slide10" class="slide">
+            <span class="slide-number">19 / 20</span>
+            <h2>重點總整理</h2>
+            <ul>
+                <li><strong>裁判分割 ≠ 讓與</strong> → 不適用§425-1</li>
+                <li>§825已有瑕疵擔保機制</li>
+                <li>瑕疵請求權時效：6個月 / 5年</li>
+                <li>房屋分割應先確認基地範圍</li>
+            </ul>
+        </section>
+
+        <!-- Slide 28: 結語 -->
+        <section class="thank-you">
+            <h2>謝謝聆聽</h2>
+            <p>謝秉錡律師事務所 | 法學案例分析</p>
+            <p style="margin-top: 2rem; font-size: 0.95rem;">
+                📍 台中市南區工學北路99號<br>
+                📞 04-22658115
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 謝秉錡律師事務所 版權所有</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">
+            📍 台中市南區工學北路99號 | 📞 04-22658115
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation
+        document.querySelectorAll('.nav-item').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 140;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.slide').forEach(slide => {
+            slide.style.animationPlayState = 'paused';
+            observer.observe(slide);
+        });
+    </script>
+</body>
+</html>
